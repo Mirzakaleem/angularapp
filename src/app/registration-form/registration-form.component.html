@@ -4,14 +4,18 @@
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form </h3>
-            <form [formGroup]="regBasicDetails">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+            <form [formGroup]="registrationDetails" (ngSubmit)="onSubmit()">
 
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="">
                     <label class="form-label" for="firstName">First Name</label>
                     <input type="text" formControlName="FirstName" name="FirstName" id="firstName" class="form-control" />
+                  </div>
+                  <div *ngIf=" !registrationDetails.controls.FirstName?.valid ">
+                    <div   *ngIf="isSumiited && registerForm.FirstName?.errors?.['required']" > <p style="color:red">  First Name Required</p>
+                      </div>
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
@@ -20,23 +24,41 @@
                     <input type="text" formControlName="LastName" name="LastName" id="lastName" class="form-control" />
                     
                   </div>
-
-                </div>
+                  <div *ngIf=" !registrationDetails.controls.LastName?.valid ">
+                    <div   *ngIf=" isSumiited && registerForm.LastName?.errors?.['required']">
+                      <p style="color:red">Last Name Required</p>
+                    </div>  
+                      </div>
+                  </div>
+           
+                
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="">
                     <label class="form-label" for="Email">Email</label>
-                    <input type="text" id="Email" fromControlName="Email" name="Email" class="form-control" />
+                    <input type="text" id="Email" formControlName="Email" name="Email" class="form-control" />
+                  </div>
+                  <div *ngIf="isSumiited && !registrationDetails.controls.Email?.valid ">
+                    <div   *ngIf="registerForm.Email.errors?.['required']" > <p style="color:red"> Email Required</p>
+                      </div>
+                      <div   *ngIf="registerForm.Email.errors?.['email']" > <p style="color:red"> Envalid Email ID</p>
+                      </div>
                   </div>
 
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <label class="form-label" for="Phone">Phone</label>
-                    <input type="text" id="Phone" class="form-control" fromControlName="Phone" />
+                    <input type="text" id="Phone" class="form-control" formControlName="Phone" />
                     
+                  </div>
+                  <div *ngIf="isSumiited && !registrationDetails.controls.Phone?.valid ">
+                    <div   *ngIf="registerForm.Phone.errors?.['required']" > <p style="color:red">Phone No. Required</p>
+                      </div>
+                      <div   *ngIf="registerForm.Phone.errors?.['min']" ><p style="color:red">  Invalid Phone Number</p>
+                      </div>
                   </div>
 
                 </div>
@@ -46,15 +68,26 @@
                 <div class="col-md-6 mb-4">
                   <div class="">
                     <label class="form-label" for="regpwd">Password</label>
-                    <input type="password" id="regpwd" fromControlName="regpwd" name="regpwd" class="form-control" />
+                    <input type="password" id="regpwd" formControlName="regpwd" name="regpwd" class="form-control" />
+                  </div>
+                  <div *ngIf="isSumiited && !registrationDetails.controls.regpwd?.valid ">
+                    <div   *ngIf="registerForm.regpwd.errors?.['required']" > <p style="color:red">Password Required</p>
+                      </div>
+                      <div *ngIf="registerForm.regpwd.errors?.['min']"> <p style="color:red"> Six Character Required</p>
+                      </div>
                   </div>
 
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <label class="form-label" for="Phone">Re Type Password</label>
-                    <input type="regconfirmpwd" type="password" id="regconfirmpwd" class="form-control" fromControlName="regconfirmpwd" />
+                    <input type="regconfirmpwd" type="password" id="regconfirmpwd" class="form-control" formControlName="regconfirmpwd" />
                     
+                  </div>
+                  <div *ngIf="isSumiited && !registrationDetails.controls.regconfirmpwd?.valid ">
+                    <div   *ngIf="registerForm.regconfirmpwd.errors?.['required']"> <p style="color:red"> Re Type Password Required</p>
+                      </div>
+                      
                   </div>
 
                 </div>
