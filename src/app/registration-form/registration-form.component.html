@@ -57,7 +57,7 @@
                   <div *ngIf="isSumiited && !registrationDetails.controls.Phone?.valid ">
                     <div   *ngIf="registerForm.Phone.errors?.['required']" > <p style="color:red">Phone No. Required</p>
                       </div>
-                      <div   *ngIf="registerForm.Phone.errors?.['min']" ><p style="color:red">  Invalid Phone Number</p>
+                      <div   *ngIf="registerForm.Phone.errors?.['minlength']" ><p style="color:red">  Invalid Phone Number</p>
                       </div>
                   </div>
 
@@ -73,7 +73,7 @@
                   <div *ngIf="isSumiited && !registrationDetails.controls.regpwd?.valid ">
                     <div   *ngIf="registerForm.regpwd.errors?.['required']" > <p style="color:red">Password Required</p>
                       </div>
-                      <div *ngIf="registerForm.regpwd.errors?.['min']"> <p style="color:red"> Six Character Required</p>
+                      <div *ngIf="registerForm.regpwd.errors?.['minlength']"> <p style="color:red"> Six Character Required</p>
                       </div>
                   </div>
 
@@ -96,6 +96,8 @@
               <div class="mt-4 pt-2">
                 <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
               </div>
+
+          
 
             </form>
           </div>
