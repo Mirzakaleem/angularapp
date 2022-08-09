@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationFormModule } from './registration-form/registration-form.module';
-
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { RegistrationFormModule } from './registration-form/registration-form.mo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RegistrationFormModule
+    RegistrationFormModule,
+    InMemoryWebApiModule.forRoot(DataService)
     
     
   ],

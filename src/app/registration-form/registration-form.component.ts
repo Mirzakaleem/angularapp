@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 import { tick } from '@angular/core/testing';
 import {FormControl,FormGroup,Validators,FormBuilder  } from '@angular/forms';
+import { RegistrationFormService } from './registration-form.service';
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
@@ -10,6 +11,7 @@ export class RegistrationFormComponent implements OnInit {
   isSumiited=false;
   formarry:any []=[];
   formarry1:any []=[];
+  registrationdet: any[] = [];
   
    arrayObj : any ;
    objectData : any;
@@ -28,9 +30,15 @@ export class RegistrationFormComponent implements OnInit {
   get registerForm() { return this.registrationDetails.controls; }
 
  
-  constructor(private Formbuilder:FormBuilder) { }
+  constructor(private Formbuilder:FormBuilder,private registrationformservice:RegistrationFormService) { }
   
   ngOnInit() {
+    this.registrationformservice.getRegistrationDet().subscribe((data : any[])=>{
+      console.log("Registration Details: "+data);
+      
+  })
+
+
     console.log("this get record"+ this.formarry.findIndex(x=>x.id==1));
     this.isSumiited=false;
    // this.getdata();
