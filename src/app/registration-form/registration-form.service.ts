@@ -10,7 +10,7 @@ export class RegistrationFormService {
   constructor(private httpclient:HttpClient ) { }
 
   public getRegistrationDet(){ 
-    return this.httpclient.get(this.SERVER_URL + 'registration');
+    return this.httpclient.get(this.SERVER_URL + 'login');
 }
 
   public getRegistratiobyID(Id){

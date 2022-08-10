@@ -34,8 +34,8 @@ export class RegistrationFormComponent implements OnInit {
   
   ngOnInit() {
     this.registrationformservice.getRegistrationDet().subscribe((data : any[])=>{
-      console.log("Registration Details: "+data);
-      
+      console.log("Registration Details:");
+      console.log(data);
   })
 
 
