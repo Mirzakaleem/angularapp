@@ -16,7 +16,7 @@ export class DataService implements InMemoryDbService {
       FirstName: "kaleem",
       LastName: "Mirza",
       Email: "kaleem@redbytes.in",
-      Phone: "",
+      Phone: "8087139777",
       regpwd: "",
       regconfirmpwd: "",
     };
