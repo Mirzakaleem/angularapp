@@ -33,10 +33,10 @@ export class RegistrationFormComponent implements OnInit {
   constructor(private Formbuilder:FormBuilder,private registrationformservice:RegistrationFormService) { }
   
   ngOnInit() {
-    this.registrationformservice.getRegistrationDet().subscribe((data : any[])=>{
-      console.log("Registration Details:");
-      console.log(data);
-  })
+      this.registrationformservice.getRegistrationDet().subscribe((data : any[])=>{
+        console.log("Registration Details:");
+        console.log(data);
+    })
 
 
     console.log("this get record"+ this.formarry.findIndex(x=>x.id==1));

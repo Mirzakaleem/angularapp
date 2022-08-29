@@ -4,6 +4,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistrationListComponent } from './registration-list.component';
+import { RegistrationListRoutingModule } from './registration-list-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { RegistrationListComponent } from './registration-list.component';
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    RegistrationListRoutingModule
   ]
 })
 export class RegistrationListModule { }
